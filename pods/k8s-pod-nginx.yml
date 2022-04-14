@@ -1,0 +1,12 @@
+# run with: kubectl apply -f pod-nginx.yml
+apiVersion: v1
+kind: Pod # with capital P (case sensitive)
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+    type: frontend
+spec:
+  containers:
+  - name: myapp
+    image: nginx

@@ -1,0 +1,17 @@
+# this was created with the following command: 
+# kubectl run redis --image redis123 --dry-run=client -o yaml > k8s-dry-run-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: redis
+  name: redis
+spec:
+  containers:
+  - image: redis123
+    name: redis
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

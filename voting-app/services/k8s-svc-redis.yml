@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis # the voting and worder app expects this to be named "redis"
+  labels:
+    name: redis-svc
+    app: voting-app
+spec:
+  type: ClusterIP
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+    name: redis-pod
+    app: voting-app

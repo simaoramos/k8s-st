@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db # the result app and worker expects this to be named "db"
+  labels:
+    name: postgres-svc
+    app: voting-app
+spec:
+  type: ClusterIP # this would not be necessary as the default is already clusterip
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    name: postgres-pod
+    app: voting-app
